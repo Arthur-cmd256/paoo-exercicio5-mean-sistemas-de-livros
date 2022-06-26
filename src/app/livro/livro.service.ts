@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Livro } from "./livro.model";
-import { Subject } from "rxjs";
+import { map, Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({ providedIn: 'root' })
@@ -14,9 +14,19 @@ export class LivroService{
   }
 
   getLivros(): void {
-    this.httpClient.get<{mensagem: string, livros: Livro[]}>('http://localhost:3000/api/livros').subscribe(
-      (dados) => {
-        this.livros = dados.livros;
+    this.httpClient.get<{mensagem: string, livros: any}>('http://localhost:3000/api/livros').pipe(map((dados) => {
+      return dados.livros.map((livro) => {
+        return {
+          id: livro._id,
+          titulo: livro.titulo,
+          autor: livro.autor,
+          paginas: livro.paginas,
+        };
+      });
+    } ))
+    .subscribe(
+      (livros) => {
+        this.livros = livros;
         this.listaLivrosAtualizada.next([...this.livros]);
       }
     )
