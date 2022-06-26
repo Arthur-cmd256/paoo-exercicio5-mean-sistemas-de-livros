@@ -57,5 +57,10 @@ export class LivrosListaComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
       this.livrosSubscription.unsubscribe();
   }
+
+  onDelete( id: string): void {
+    this.livroService.removerLivro(id);
+  }
+
 }
 

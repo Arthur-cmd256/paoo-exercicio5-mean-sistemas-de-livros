@@ -1,27 +1,22 @@
 <mat-card>
     <form (submit)=" onAdicionarLivro(livroForm)" #livroForm="ngForm">
-    <mat-form-field>
-        <input required matInput type="number" placeholder="id" name="id" ngModel #id="ngModel" />
-        <mat-error *ngIf="id.invalid">Digite um id válido</mat-error>
-    </mat-form-field>
+        <mat-form-field>
+            <input required minlength="4" matInput type="text" placeholder="titulo" name="titulo" ngModel #titulo="ngModel" />
+            <mat-error *ngIf="titulo.invalid">Digite um título válido</mat-error>
+        </mat-form-field>
 
-    <mat-form-field>
-        <input required minlength="4" matInput type="text" placeholder="titulo" name="titulo" ngModel #titulo="ngModel" />
-        <mat-error *ngIf="titulo.invalid">Digite um título válido</mat-error>
-    </mat-form-field>
+        <mat-form-field>
+            <input required minlength="4" matInput type="text" placeholder="autor" name="autor" ngModel #autor="ngModel" />
+            <mat-error *ngIf="autor.invalid">Digite um nome de autor válido</mat-error>
+        </mat-form-field>
 
-    <mat-form-field>
-        <input required minlength="4" matInput type="text" placeholder="autor" name="autor" ngModel #autor="ngModel" />
-        <mat-error *ngIf="autor.invalid">Digite um nome de autor válido</mat-error>
-    </mat-form-field>
+        <mat-form-field>
+            <input required minlength="2" matInput type="number" placeholder="numero de paginas" name="paginas" ngModel #paginas="ngModel" />
+            <mat-error *ngIf="paginas.invalid">Digite um número de páginas válido</mat-error>
+        </mat-form-field>
 
-    <mat-form-field>
-        <input required minlength="2" matInput type="number" placeholder="numero de paginas" name="paginas" ngModel #paginas="ngModel" />
-        <mat-error *ngIf="paginas.invalid">Digite um número de páginas válido</mat-error>
-    </mat-form-field>
-
-    <button color="primary" mat-raised-button>Cadastrar Livro</button>
-  </form>
+        <button color="primary" mat-raised-button>Cadastrar Livro</button>
+    </form>
 </mat-card>
 
 
