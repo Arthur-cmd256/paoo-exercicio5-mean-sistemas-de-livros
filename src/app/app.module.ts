@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LivroCadastrarComponent } from './livro/livro-cadastrar/livro-cadastrar.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { LivrosListaComponent } from './livro/livros-lista/livros-lista.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { LivrosListaComponent } from './livro/livros-lista/livros-lista.componen
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
